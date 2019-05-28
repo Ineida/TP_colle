@@ -1,17 +1,24 @@
-<table class="table table-bordered table-striped">
-<thead>
-<th>Id</th>
-<th>prix</th>
-<th>titre</th>
-</thead>
+@extends('template')
 
-@foreach($lesMangas as $manga)
-    <tr>
-        <td> {{ $manga->getIdManga() }}</td>
-        <td> {{ $manga->getPrix() }}</td>
-        <td> {{ $manga->getTitre() }}</td>
-        <td>{{$manga->getGenre()}}</td>
-    </tr>
-    @endforeach
+@section('titre_page')
+    Liste des mangas
+@endsection
 
-    </table>
+@section('titre')
+    <h1>Les mangas </h1>
+@endsection
+
+@section('contenu')
+
+    <conference>
+        @foreach($lesMangas as $manga)
+            <h2><a href="{{url('/listeMangas')}}">{{ $manga->getTitre()}} </a></h2>
+
+            <p> id: {{ $manga->getIdManga()}}  </p><p> prix{{ $manga->getPrix()}}  </p>
+
+
+        @endforeach
+    </conference>
+
+
+@endsection

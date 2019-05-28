@@ -29,7 +29,7 @@ class MangaDAO extends DAO{
         $leManga->setTitre($objet->titre);
 
         $genreDAO= new genreDAO();
-        $lesGenres=$genreDAO->getGenre($objet->id_Genre);
+        $lesGenres=$genreDAO->getGenre($objet->id_genre);
 
         if($lesGenres){
             $leManga->setGenre($lesGenres);
